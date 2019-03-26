@@ -15,8 +15,8 @@ class OlusturTabloSetting extends Migration
     {
         Schema::create('setting', function (Blueprint $table) {
             $table->Increments('id');
-            $table->integer('phone1')->nullable();
-            $table->integer('phone2')->nullable();
+            $table->string('phone1')->nullable();
+            $table->string('phone2')->nullable();
             $table->string('email')->nullable();
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();
