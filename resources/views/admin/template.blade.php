@@ -64,9 +64,9 @@
                     <li class="menu-title text-white">General</li>
 
                     <li>
-                        <a href="index.html" class="waves-effect">
+                        <a href="{{route('administrator.index')}}" class="waves-effect">
                             <i class="ti-home"></i>
-                            <span> Dashboard <span class="badge badge-primary pull-right">3</span></span>
+                            <span> Yönetim Paneli <span class="badge badge-primary pull-right"></span></span>
                         </a>
                     </li>
 
@@ -523,8 +523,8 @@
 
             </div>
             <!-- Page content Wrapper -->--}}
+@yield('content')
 
-            Agency Admin Panel
 
         </div>
         <!-- content -->

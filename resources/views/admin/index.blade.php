@@ -1,7 +1,7 @@
 @extends ('admin.template')
 
-@section('icerik')
-
+@section('content')
+    Agency Admin Panel
 @endsection
 
 @section('css')
