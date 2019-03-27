@@ -25,7 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
 
         Route::get('/index','AdminController@index')->name('admin.index');
+        //Setting
         Route::resource('setting','SettingController');
+        //Page
+        Route::resource('page','PageController');
 
 
 

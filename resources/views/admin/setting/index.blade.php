@@ -12,9 +12,7 @@
 
                     {!! Form::model($setting,['route'=>['setting.update',1],'method'=>'PUT','files'=>'true','class'=>'form-horizontal']) !!}
 
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">Site Başlık</label>
-                        <div class="col-sm-10">
+
 
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )

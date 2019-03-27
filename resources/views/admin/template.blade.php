@@ -43,7 +43,7 @@
         <div class="topbar-left">
             <div class="text-center">
                 <!--<a href="index.html" class="logo">Admiry</a>-->
-                <a href="index.html" class="logo"><img src="/admin/images/logo.png" height="33" alt="logo"></a>
+                <a href="{{route('admin.index')}}" class="logo"><img src="/admin/images/logo.png" height="33" alt="logo"></a>
             </div>
         </div>
 
@@ -71,6 +71,11 @@
                     </li>
                     <li >
                         <a href="{{route('setting.index')}}" class="waves-effect"><i class="ti-settings"></i> <span> Site Ayarları </span> </a>
+
+                    </li>
+
+                    <li >
+                        <a href="{{route('page.index')}}" class="waves-effect"><i class="ti-files"></i></i> <span> Sayfa Yönetimi </span> </a>
 
                     </li>
 
