@@ -27,10 +27,16 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
+        $validatorinput = Validator::make($request->all(), [
+            'title[tr]' => 'required',
+            'title[en]' => 'required',
+        ]);
 
+        if (!$validatorinput->passes()) {
 
+            return back()->with('error','Zorunlu Alanlar Mevcut');
+        }
         $page  = new Page();
-
 
         if (request()->hasFile('photo')) {
 
