@@ -2,15 +2,17 @@
 
 @section('content')
 
-
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="widget-box">
+    <div class="row">
+        <div class="col-12">
+            <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Yeni Sayfa Ekle</h4>
-                    {!! Form::open(['route'=>'page.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
+                    <h4 class="mt-0 header-title">Yeni Sayfa</h4>
 
+                    {!! Form::open(['route'=>'page.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
+                        <div class="col-sm-10">
                     <ul class="nav nav-pills nav-justified" role="tablist">
                         @foreach(config('translatable.locales') as $count => $langs )
                             <li class="nav-item waves-effect waves-light">
@@ -27,20 +29,13 @@
                             </div>
                         @endforeach
                     </div>
-               {{-- </div>
+                        </div>
                     </div>
-                </div>
---}}
-           {{-- burası da içerik için--}}
 
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">İçerik</label>
+                        <div class="col-sm-10">
 
-
-            {{--    <div class="form-group row">
-                    <label for="example-text-input" class="col-sm-2 col-form-label">İçerik</label>
-                    <div class="col-sm-10">
-
-                        <div class="widget-content nopadding">--}}
-                            {!! Form::open(['route'=>'page.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
 
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
@@ -58,11 +53,13 @@
                                     </div>
                                 @endforeach
                             </div>
-                     {{--   </div>
+                      </div>
                     </div>
-                </div>
---}}
 
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Sayfa Görseli</label>
+                        <div class="col-sm-10">
                     <div class="control-group">
                         <label class="control-label"> Fotoğraf</label>
                         <div class="controls">
@@ -71,9 +68,13 @@
                     </div>
                     <br/>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-success">Sayfayı Ekle</button>
+                        <button type="submit" type="submit" class="btn btn-primary waves-effect waves-light">Sayfa Ekle</button>
                     </div>
                     {!! Form::close() !!}
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>

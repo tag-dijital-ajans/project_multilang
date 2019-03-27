@@ -1,51 +1,50 @@
 @extends ('admin/template')
 
 @section('content')
-    <div style="float:right; margin: 15px 0 5px 0;"><a href="{{route('page.create')}}" class="btn btn-success">Yeni Ekle</a></div>
-    <div style="clear:both;"></div>
-    <div class="widget-box">
-        <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Sayfa Yönetimi</h5>
-        </div>
-        <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-                <thead>
-                <tr>
-                    <th>Başlık</th>
-                    <th>Açıklama</th>
-                    <th width="5%">Düzenle</th>
-                    <th width="5%">Sil</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($pages as $page)
-                    <tr class="gradeX">
-                        <td>{{$page->title}}</td>
-                      {{--  <td>--}}
-                        <td>{!! $page->content !!}</td>
-{{--
+    <div class="row">
+        <div style="float:left; margin: 15px 0 5px 0;"><a href="{{route('page.create')}}" class="btn btn-success">Yeni Sayfa</a></div>
+        <div class="col-12">
+            <div class="card m-b-30">
+                <div class="card-body">
 
-{!! str_limit(strip_tags($page->content),$limit=100,$end='...') !!}
+                    <h4 class="mt-0 header-title">Sayfalar</h4>
+                    <p class="text-muted m-b-30 font-14">
+                    </p>
 
-                        </td>
---}}
+                    <table id="datatable" class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="80%">Sayfa Başlığı</th>
 
-                        <td class="center"><a href="{{route('page.edit', $page->id)}}"class="btn btn-success btn-mini">Düzenle</a> </td>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+                        </thead>
 
-                        {!! Form::model($page,['route'=>['page.destroy',$page->id],'method'=>'DELETE']) !!}
-                        <td class="center">
-                            <button type="submit" onclick="return window.confirm('Silmek istediğinize eminmisiniz?');" class="btn btn-danger btn-mini">Sil</button>
-                        </td>
 
-                        {!! Form::close() !!}
-                    </tr>
+                        <tbody>
+                        @foreach($pages as $page)
+                            <tr>
+                                <td>{{$page->title}}</td>
+                                <td><a href="{{route('page.edit', $page->id)}}" class="btn btn-success">Düzenle</a></td>
+                                {!! Form::model($page,['route'=>['page.destroy',$page->id],'method'=>'DELETE']) !!}
+                                <td class="center">
+                                    <button type="submit" onclick="return window.confirm('Silmek istediğinize eminmisiniz?');" class="btn btn-danger ">Sil</button>
+                                </td>
 
-                @endforeach
+                                {!! Form::close() !!}
 
-                </tbody>
-            </table>
-        </div>
-    </div>
+
+                            </tr>
+                        @endforeach
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
 
 
 @endsection
