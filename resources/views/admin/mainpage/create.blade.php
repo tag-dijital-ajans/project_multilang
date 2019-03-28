@@ -9,7 +9,7 @@
 
                     <h4 class="mt-0 header-title">Yeni Sayfa</h4>
 
-                    {!! Form::open(['route'=>'page.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
+                    {!! Form::open(['route'=>'mainpage.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
@@ -17,16 +17,16 @@
                        @foreach(config('translatable.locales') as $count => $langs )
 
                             <li class="nav-item ">
-                                <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#title{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
+                                <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#textheader{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
                             </li>
                         @endforeach
                     </ul>
                     <div class="tab-content">
                         @foreach(config('translatable.locales') as $count => $langs )
 
-                            <div class="tab-pane @if($count == 0) active @endif p-3" id="title{{$langs}}" role="tabpanel">
+                            <div class="tab-pane @if($count == 0) active @endif p-3" id="textheader{{$langs}}" role="tabpanel">
                                 <p class="font-14 mb-0">
-                                    <input class="form-control" type="text"  name="title[{{$langs}}]" required>
+                                    <input class="form-control" type="text"  name="textheader[{{$langs}}]" required>
                                 </p>
                             </div>
                         @endforeach
@@ -42,15 +42,15 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item">
-                                        <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#content{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
+                                        <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#text{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
                                     </li>
                                 @endforeach
                             </ul>
                             <div class="tab-content">
                                 @foreach(config('translatable.locales') as $count => $langs )
-                                    <div class="tab-pane @if($count == 0) active @endif p-3" id="content{{$langs}}" role="tabpanel">
+                                    <div class="tab-pane @if($count == 0) active @endif p-3" id="text{{$langs}}" role="tabpanel">
                                         <p class="font-14 mb-0">
-                                            <textarea class="form-control" type="text"  name="content[{{$langs}}]" ></textarea>
+                                            <textarea class="form-control" type="text"  name="text[{{$langs}}]" ></textarea>
                                         </p>
                                     </div>
                                 @endforeach
@@ -59,16 +59,7 @@
                     </div>
 
 
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">Sayfa Görseli</label>
-                        <div class="col-sm-10">
-                    <div class="control-group">
-                        <label class="control-label"> Fotoğraf</label>
-                        <div class="controls">
-                            <input type="file" name="photo"  class="span11"  />
-                        </div>
-                    </div>
-                    <br/>
+
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
                             </div>

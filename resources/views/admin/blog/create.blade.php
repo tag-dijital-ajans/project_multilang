@@ -7,9 +7,9 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Yeni Sayfa</h4>
+                    <h4 class="mt-0 header-title"> Blog</h4>
 
-                    {!! Form::open(['route'=>'page.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
+                    {!! Form::open(['route'=>'blog.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
@@ -60,12 +60,12 @@
 
 
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">Sayfa Görseli</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Blog Görseli</label>
                         <div class="col-sm-10">
                     <div class="control-group">
-                        <label class="control-label"> Fotoğraf</label>
+                        {{--<label class="control-label"> Fotoğraf</label>--}}
                         <div class="controls">
-                            <input type="file" name="photo"  class="span11"  />
+                            <input type="file" name="image"  class="span11"  />
                         </div>
                     </div>
                     <br/>

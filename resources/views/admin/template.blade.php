@@ -65,9 +65,13 @@
 
                     <li>
                         <a href="{{route('admin.index')}}" class="waves-effect">
-                            <i class="ti-home"></i>
+                            <i class="mdi mdi-home-map-marker "></i>
                             <span> Anasayfa <span class="badge badge-primary pull-right"></span></span>
                         </a>
+                    </li>
+                    <li >
+                        <a href="{{route('mainpage.index')}}" class="waves-effect"><i class="ti-home"></i><i class="ti-settings"></i> <span> Anasayfa Ayarları </span> </a>
+
                     </li>
                     <li >
                         <a href="{{route('setting.index')}}" class="waves-effect"><i class="ti-settings"></i> <span> Site Ayarları </span> </a>
@@ -78,6 +82,43 @@
                         <a href="{{route('page.index')}}" class="waves-effect"><i class="ti-files"></i></i> <span> Sayfa Yönetimi </span> </a>
 
                     </li>
+                    <li >
+                        <a href="{{route('service.index')}}" class="waves-effect"><i class="mdi mdi-store "></i></i> <span> Hizmet Yönetimi </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('project.index')}}" class="waves-effect"><i class="dripicons-hourglass  "></i></i> <span> Proje Yönetimi </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('projectcategory.index')}}" class="waves-effect"><i class="mdi mdi-book-open-page-variant  "></i></i> <span> Proje Kategori  </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('reference.index')}}" class="waves-effect"><i class="dripicons-user-id  "></i></i> <span> Referans Yönetimi  </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('slider.index')}}" class="waves-effect"><i class="ti-layout-slider"></i></i> <span> Slider Yönetimi  </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('blog.index')}}" class="waves-effect"><i class="mdi mdi-blogger "></i></i> <span> Blog Yönetimi  </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('blogcategory.index')}}" class="waves-effect"><i class="dripicons-blog  "></i></i> <span> Blog Kategori  </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('menu.index')}}" class="waves-effect"><i class="ti-menu-alt   "></i></i> <span> Menu Yönetimi  </span> </a>
+
+                    </li>
+                    <li >
+                        <a href="{{route('gallery.index')}}" class="waves-effect"><i class="ti-gallery    "></i></i> <span> Galeri Yönetimi  </span> </a>
+
+                    </li>
+
 
                     <li class="has_sub">
                         <a href="javascript:void(0);" class="waves-effect"><i class="ti-light-bulb"></i> <span> User Interface </span> <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span></a>
