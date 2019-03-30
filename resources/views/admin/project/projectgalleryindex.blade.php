@@ -1,7 +1,7 @@
 @extends ('admin/template')
 
 @section('content')
-    <div style="float:right;margin:15px 0 5px 0;"><a href="{{route('project.projectgalerycreate')}}" class="btn btn-success">Resim Yükle</a></div>
+    <div style="float:right;margin:15px 0 5px 0;"><a href="{{route('project.projectgallerycreate')}}" class="btn btn-success">Resim Yükle</a></div>
     <div style="clear:both;"></div>
     <div class="row-fluid">
         <div class="span12">

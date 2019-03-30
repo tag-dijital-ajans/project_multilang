@@ -43,16 +43,16 @@ class SettingController extends Controller
                 return back()->with('error','Logo max 512mb olmalı');
             }
 
-            //$this->validate(request(), array('logo' => 'image|mimes:png,jpg,jpeg,gif|max:1024'));
+            $this->validate(request(), array('logo' => 'image|mimes:png,jpg,jpeg,gif|max:1024'));
             $logo = request()->file('logo');
-            $dosya_adi = 'logo' . '-' . time() . '.' . $logo->extension();
+            $filename = 'logo' . '-' . time() . '.' . $logo->extension();
 
             if ($logo->isValid()) {
 
-                $hedef_klasor = 'uploads/logo';
-                $dosya_yolu = $hedef_klasor . '/' . $dosya_adi;
-                $logo->move($hedef_klasor, $dosya_adi);
-                $ayar->logo = $dosya_yolu;
+                $target = 'uploads/logo';
+                $filepath = $target . '/' . $filename;
+                $logo->move($target, $filename);
+                $ayar->logo = $filepath;
 
             } else {
 

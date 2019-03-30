@@ -14,11 +14,10 @@
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
+                            <th>Görsel</th>
                             <th>Metin</th>
                             <th>Buton Metni</th>
                             <th>Buton Url</th>
-                            <th>Görsel</th>
-
                             <th width="7">Düzenle</th>
                             <th width="5">Sil</th>
                         </tr>

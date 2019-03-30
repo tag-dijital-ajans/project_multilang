@@ -7,7 +7,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title"> Yeni Logo</h4>
+                    <h4 class="mt-0 header-title"> Yeni Referans Logosu</h4>
 
                     {!! Form::open(['route'=>'reference.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
 

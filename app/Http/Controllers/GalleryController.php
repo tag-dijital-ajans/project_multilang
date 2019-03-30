@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class GalleryController extends Controller
 {
@@ -26,8 +27,8 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        $gallery = Gallery::find(1);
-        return view('admin.gallery.create',compact('gallery'));
+
+        return view('admin.gallery.create');
     }
 
     /**
@@ -38,40 +39,42 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        $gallery  = new Gallery();
+        $galleries = $request->file([]);
 
-        if (request()->hasFile('image')) {
+        foreach ($galleries as $gallery) {
 
-            $validator = Validator::make($request->all(), [
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            ]);
-            if (!$validator->passes()) {
+            $gallery = new Gallery();
+            $extension = $gallery->getClientOriginalExtension();
+            $product = Str::random(10);
+            $file = $product. '.'.$extension;
+            $target = 'uploads/galeri';
+            $filepath = $target.'/'.$file;
+            $gallery->move($target,$file);
 
-                return back()->with('error','Fotoğraf Yüklenmedi');
+            $gallery->image = $filepath;
+
+
+
+
+            foreach(config('translatable.locales') as $langs)
+
+            {
+                $gallery->{'title:'.$langs } = 'Galeri' ;
+
+
             }
 
-            $image = request()->file('image');
-            $filename = 'image' . '-' . time() . '.' . $image->extension();
-
-            if ($image->isValid()) {
-
-                $target = 'uploads/page';
-                $filepath = $target . '/' . $filename;
-                $image->move($target, $filename);
-                $gallery->image = $filepath;
-
-            }
-        }
-        foreach(config('translatable.locales') as $langs)
-
-        {
-            $gallery->{'title:'.$langs } = $request->get('title')[$langs];
-
+            $gallery->save();
 
         }
 
-        $gallery->save();
-        return back()->with('success','Sayfa Eklendi');
+
+
+
+
+
+
+
 
     }
 
@@ -94,8 +97,7 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        $gallery = Gallery::find($id);
-        return view('admin.gallery.edit',compact('gallery'));
+
     }
 
     /**
@@ -107,7 +109,7 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gallery  = Gallery::find($id);
+       /* $gallery  = Gallery::find($id);
 
 
         if (request()->hasFile('image')) {
@@ -141,7 +143,7 @@ class GalleryController extends Controller
         }
 
         $gallery->save();
-        return back()->with('success','Sayfa Güncellendi');
+        return back()->with('success','Sayfa Güncellendi');*/
     }
 
     /**

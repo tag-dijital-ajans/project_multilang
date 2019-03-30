@@ -27,8 +27,8 @@ class ProjectCategoryController extends Controller
      */
     public function create()
     {
-       /* $projectcategory = ProjectCategory::find(1);*/
-        return view('admin.projectcategory.create'/*,compact('projectcategory')*/);
+
+        return view('admin.projectcategory.create');
     }
 
     /**
@@ -47,11 +47,10 @@ class ProjectCategoryController extends Controller
 
         {
             $projectcategory->{'title:'.$langs } = $request->get('title')[$langs];
-
-           /* $projectcategory->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);*/
+            $projectcategory->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);
 
         }
-        $projectcategory->projectcategory_id = request('projectcategory_id');
+
         $projectcategory->save();
         return back()->with('success','Kategori Eklendi');
 
@@ -97,11 +96,10 @@ class ProjectCategoryController extends Controller
 
         {
             $projectcategory->{'title:'.$langs } = $request->get('title')[$langs];
-           /* $projectcategory->{'projectcategory_id:'.$langs} = Str::slug($request->get('projectcategory_id')[$langs]);*/
             $projectcategory->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);
 
         }
-        $projectcategory->projectcategory_id = request('projectcategory_id');
+
         $projectcategory->save();
         return back()->with('success','Kategori Güncellendi');
     }

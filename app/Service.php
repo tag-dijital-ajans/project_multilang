@@ -9,8 +9,8 @@ class Service extends Model
     protected $table = 'service';
     protected $guarded = [];
 
-    use \Dimsav\Translatable\Translatable;
 
+    use \Dimsav\Translatable\Translatable;
     public $translatedAttributes = [
         'title','content','slug'
     ];

@@ -8,6 +8,7 @@ use App\ProjectCategory;
 use App\ProjectGalery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -32,7 +33,8 @@ class ProjectController extends Controller
     public function create()
     {
         $projectcategory = ProjectCategory::find(1);
-        return view('admin.project.create',compact('project','projectcategory'));
+        $projectcategorys = ProjectCategory::all();
+        return view('admin.project.create',compact('project','projectcategory','projectcategorys'));
     }
 
     /**
@@ -81,7 +83,51 @@ class ProjectController extends Controller
         }
         $project->date = request('date');
         $project->save();
-        return back()->with('success','Proje Eklendi');
+
+         /////////PROJE GALERİSİNE FOTO EKLEME //////////////
+        if ($project) {
+
+
+            $files = Input::file('images');
+
+            $file_count = count($files);
+
+            $uploadcount = 0;
+
+            foreach ($files as $file) {
+                $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+                $validator = Validator::make(array('file' => $file), $rules);
+                if ($validator->passes()) {
+
+                    $galerry = new ProjectGalery();
+                    $filename = 'galerry' . '-' . microtime(true) . '.' . $file->extension();
+                    $target = 'uploads/projegaleri/';
+                    $filepath = $target . '/' . $filename;
+                    $file->move($target, $filename);
+                    $galerry->image = $filepath;
+              /*      $galerry->baslik = Str::Random($file->getClientOriginalName());*/
+
+                    $project = Project::orderby('created_at', 'desc')->first();
+                    $project_id = $project->id;
+                    $galerry->project = $project_id;
+                    $galerry->save();
+
+                }
+            }
+
+            return back()->with('success','Proje Güncellendi');
+
+
+        } else {
+            return back()->with('success','Proje Güncellenemedi');
+
+        }
+
+
+
+
+
+
 
 
     }
@@ -106,7 +152,9 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('admin.project.edit',compact('project'));
+        $projectcategories = ProjectCategory::where('id','!=',$project->projectcategory_id)->get();
+        $galleries = ProjectGalery::where('project',$id)->get();
+        return view('admin.project.edit',compact('project','projectcategories','galleries'));
     }
 
     /**

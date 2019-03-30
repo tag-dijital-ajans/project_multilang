@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProjectGalery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectGalleryController extends Controller
 {
@@ -39,7 +40,7 @@ class ProjectGalleryController extends Controller
         $images = $request->file([]);
         foreach ($images as $image) {
             $uzanti = $images->getClientOriginalExtension();
-            $uret = str_random(10);
+            $uret = Str::Random(10);
             $dosya = $uret. '.'.$uzanti;
             $dizin = 'uploads/proje';
             $resimyol = $dizin.'/'.$dosya;

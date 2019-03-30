@@ -10,8 +10,29 @@
                     <h4 class="mt-0 header-title">Yeni Proje</h4>
 
                     {!! Form::open(['route'=>'project.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
+
+
+
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
+                        <label class="col-sm-2 col-form-label">Proje Seçin</label>
+
+                            <select name="project_category_id" class="col-md-9 col-form-label">
+
+                                @foreach($projectcategorys as $project)
+
+                                    <option value="{{$project->id}}">{{$project->title}}</option>
+
+
+                                @endforeach
+
+                            </select>
+                    </div>
+                    <br/><br/><br/>
+
+
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Adı</label>
                         <div class="col-sm-10">
                     <ul class="nav nav-tabs" role="tablist">
                        @foreach(config('translatable.locales') as $count => $langs )
@@ -143,7 +164,7 @@
 
 
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Görseli</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Ana Görseli</label>
                         <div class="col-sm-10">
                     <div class="control-group">
                         <label class="control-label"> </label>
@@ -151,7 +172,13 @@
                             <input type="file" name="image"  class="span11"  />
                         </div>
                     </div>
-                    <br/>
+                            <div class="control-group">
+                                <label class="control-label">Proje Galerisi</label>
+                                <div class="controls">
+                                    {!! Form::file('images[]', array('multiple'=>true , 'required' =>'required')) !!}
+                                </div>
+                            </div>
+
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
                             </div>

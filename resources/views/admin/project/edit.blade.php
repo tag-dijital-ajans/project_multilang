@@ -44,17 +44,18 @@
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#location{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
+                                        <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#content{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
                                     </li>
                                 @endforeach
                             </ul>
                             <div class="tab-content">
                                 @foreach(config('translatable.locales') as $count => $langs )
-                                    <div class="tab-pane @if($count == 0) active @endif p-3" id="location{{$langs}}" role="tabpanel">
+                                    <div class="tab-pane @if($count == 0) active @endif p-3" id="content{{$langs}}" role="tabpanel">
                                         <p class="font-14 mb-0">
-                                            <textarea class="form-control" type="text"  name="location[{{$langs}}]" required>
-                                                {{$project->translate($langs)->location}}
+                                <textarea class="form-control" type="text"  name="content[{{$langs}}]" required>
+                                                {{$project->translate($langs)->content}}
                                             </textarea>
+
                                         </p>
                                     </div>
                                 @endforeach
@@ -69,15 +70,15 @@
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#content{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
+                                        <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#location{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
                                     </li>
                                 @endforeach
                             </ul>
                             <div class="tab-content">
                                 @foreach(config('translatable.locales') as $count => $langs )
-                                    <div class="tab-pane @if($count == 0) active @endif p-3" id="content{{$langs}}" role="tabpanel">
+                                    <div class="tab-pane @if($count == 0) active @endif p-3" id="type{{$langs}}" role="tabpanel">
                                         <p class="font-14 mb-0">
-                                            <input class="form-control" type="text" value="{!! $project->translate($langs)->content !!}"  name="content[{{$langs}}]" required>
+                                            <input class="form-control" type="text" value="{{$project->translate($langs)->location}}"  name="location[{{$langs}}]" required>
                                         </p>
                                     </div>
                                 @endforeach
@@ -159,6 +160,48 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div style="clear:both;"></div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-picture"></i> </span>
+                    <h5>Resim Galerisi</h5>
+                </div>
+                <div class="widget-content">
+                    <ul class="thumbnails">
+
+
+                        @foreach($galleries as $gallery)
+                            <li class="span2">
+                                {!! Form::model($gallery,['route'=>['gallery.destroy',$gallery->id],'method'=>'DELETE']) !!}
+                                <img src="/{{$gallery->image}}" alt="" width="240" height="40" >
+                                <br>
+                                <button type="submit" onclick="return window.confirm('Silmek istediğinize eminmisiniz?');" class="btn btn-danger btn-mini">Sil</button>
+
+
+                                {!! Form::close() !!}
+
+
+
+                            </li>
+                        @endforeach
+
+                        {{--@foreach($resimler as $resim)
+                            <li class="span2"> <a> <img src="/{{$resim->resim}}" alt="" width="240" height="40" > </a>
+                                <div class="actions"> <a title="" class="" href="{{route('projeresim.sil',$resim->id)}}" data-method="delete" data-token="{{csrf_token()}}" data-confirm="Resim Silinsin Mi?"><i class="icon-trash"></i></a> <a class="lightbox_trigger" href="/{{$resim->resim_yolu}}"><i class="icon-search"></i></a> </div>
+                            </li>
+                        @endforeach--}}
+
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
 @endsection

@@ -16,6 +16,6 @@ class Gallery extends Model
     ];
 
     protected $fillable = [
-        'photo','order'
+        'image','order'
     ];
 }

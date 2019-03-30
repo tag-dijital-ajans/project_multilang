@@ -48,7 +48,7 @@
                         <div class="col-sm-10">
 
                             <input class="form-control" type="file" name="logo">
-                            <img src="/{{$setting->logo}}" width="200px" height="100px">
+                            <img src="/{{$setting->logo}}" width="200px" height="100px" value="/{{$setting->logo}}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -56,7 +56,7 @@
                         <div class="col-sm-10">
 
                             <input class="form-control" type="file" name="favicon">
-                            <img src="/{{$setting->favicon}}" width="50px" height="50px">
+                            <img src="/{{$setting->favicon}}" width="50px" height="50px" value="/{{$setting->favicon}}">
                         </div>
                     </div>
 

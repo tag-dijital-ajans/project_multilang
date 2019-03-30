@@ -63,7 +63,7 @@
                         <label for="example-text-input" class="col-sm-2 col-form-label">Sayfa Görseli</label>
                         <div class="col-sm-10">
                     <div class="control-group">
-                        <label class="control-label"> Fotoğraf</label>
+
                         <div class="controls">
                             <input type="file" name="photo"  class="span11"  />
                         </div>

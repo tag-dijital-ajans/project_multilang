@@ -10,4 +10,8 @@ class MenuTranslation extends Model
     protected $guarded = [];
     public $timestamps = false;
     protected $fillable = ['title'];
+
+    public function sayfasi(){
+        return $this->belongsTo('App\PageTranslation','id');
+    }
 }

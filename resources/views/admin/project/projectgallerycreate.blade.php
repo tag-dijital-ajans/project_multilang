@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {!! Form::open(array('method'=>'POST','action'=>'ProjectGaleriController@store','class'=>'dropzone','files'=>'true','multiple'=>'true')) !!}
+    {!! Form::open(array('method'=>'POST','action'=>'ProjectGalerryController@store','class'=>'dropzone','files'=>'true','multiple'=>'true')) !!}
 
 
     {!! Form::close() !!}

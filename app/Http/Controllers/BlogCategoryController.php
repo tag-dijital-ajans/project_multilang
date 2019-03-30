@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BlogCategoryController extends Controller
 {
@@ -26,7 +27,7 @@ class BlogCategoryController extends Controller
      */
     public function create()
     {
-        $blogcategory = Page::find(1);
+        $blogcategory = BlogCategory::find(1);
         return view('admin.blogcategory.create',compact('blogcategory'));
     }
 
@@ -45,7 +46,7 @@ class BlogCategoryController extends Controller
 
         {
             $blogcategory->{'title:'.$langs } = $request->get('title')[$langs];
-            $blogcategory->{'content:'.$langs} = $request->get('content')[$langs];
+
             $blogcategory->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);
 
         }
@@ -95,13 +96,13 @@ class BlogCategoryController extends Controller
 
         {
             $blogcategory->{'title:'.$langs } = $request->get('title')[$langs];
-            $blogcategory->{'content:'.$langs} = $request->get('content')[$langs];
+
             $blogcategory->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);
 
         }
 
         $blogcategory->save();
-        return back()->with('success','Sayfa Güncellendi');
+        return back()->with('success','Blog Kategori Güncellendi');
     }
 
     /**

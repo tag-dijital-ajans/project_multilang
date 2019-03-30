@@ -25,13 +25,25 @@
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <div class="tab-pane @if($count == 0) active @endif p-3" id="title{{$langs}}" role="tabpanel">
                                         <p class="font-14 mb-0">
-                                            <input class="form-control" type="text" value="{{$page->translate($langs)->title}}"  name="title[{{$langs}}]" required>
+                                            <input class="form-control" type="text" value="{{$projectcategory->translate($langs)->title}}"  name="title[{{$langs}}]" required>
                                         </p>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
+
+                   {{-- <div class="control-group">
+                        <label class="control-label"> Seo</label>
+                        <div class="controls">
+                            <input type="text" class="span11" name="slug" value="{{$projectcategory->slug}}"  />
+                        </div>
+                    </div>--}}
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Güncelle</button>
+                    </div>
+                    {!! Form::close() !!}
 
                 </div>
             </div>

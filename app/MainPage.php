@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use \Dimsav\Translatable\Translatable;
 class MainPage extends Model
 {
     protected $table = 'mainpagesetting';

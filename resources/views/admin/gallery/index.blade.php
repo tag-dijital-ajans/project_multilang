@@ -1,50 +1,31 @@
 @extends ('admin/template')
 
 @section('content')
-    <div class="row">
-        <div style="float:left; margin: 15px 0 5px 0;"><a href="{{route('page.create')}}" class="btn btn-success">Yeni Sayfa</a></div>
-        <div class="col-12">
-            <div class="card m-b-30">
-                <div class="card-body">
+    <div style="float:right;margin:15px 0 5px 0;"><a href="{{route('gallery.create')}}" class="btn btn-success">Resim Yükle</a></div>
+    <div style="clear:both;"></div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-picture"></i> </span>
+                    <h5>Resim Galerisi</h5>
+                </div>
 
-                    <h4 class="mt-0 header-title">Sayfalar</h4>
-                    <p class="text-muted m-b-30 font-14">
-                    </p>
-
-                    <table id="datatable" class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th width="80%">Sayfa Başlığı</th>
-
-                            <th>Düzenle</th>
-                            <th>Sil</th>
-                        </tr>
-                        </thead>
-
-
-                        <tbody>
-                        @foreach($pages as $page)
-                            <tr>
-                                <td>{{$page->title}}</td>
-                                <td><a href="{{route('page.edit', $page->id)}}" class="btn btn-success">Düzenle</a></td>
-                                {!! Form::model($page,['route'=>['page.destroy',$page->id],'method'=>'DELETE']) !!}
-                                <td class="center">
-                                    <button type="submit" onclick="return window.confirm('Silmek istediğinize eminmisiniz?');" class="btn btn-danger ">Sil</button>
-                                </td>
-
-                                {!! Form::close() !!}
-
-
-                            </tr>
+                <div class="widget-content">
+                    <ul class="thumbnails">
+                        @foreach($galleries as $gallery)
+                            <li class="span2"> <a> <img src="/{{$gallery->image}}" alt="" width="240" height="240" > </a>
+                                <div class="actions"> <a title="" class="" href="{{route('gallery.destroy',$gallery->id)}}" data-method="delete" data-token="{{csrf_token()}}" data-confirm="Resim Silinsin Mi?"><i class="icon-trash"></i></a> <a class="lightbox_trigger" href="/{{$gallery->image}}"><i class="icon-search"></i></a> </div>
+                            </li>
+                            {{--<td>{{$gallery->title}}</td>--}}
                         @endforeach
 
-                        </tbody>
-                    </table>
+                    </ul>
 
                 </div>
             </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
+        </div>
+    </div>
+    </div>
 
 
 @endsection
@@ -55,6 +36,68 @@
 @endsection
 
 @section('js')
+    <script>
+
+        (function(window, $, undefined) {
+            var Laravel = {
+                initialize: function() {
+                    this.methodLinks = $('a[data-method]');
+                    this.token = $('a[data-token]');
+                    this.registerEvents();
+                },
+                registerEvents: function() {
+                    this.methodLinks.on('click', this.handleMethod);
+                },
+                handleMethod: function(e) {
+                    e.preventDefault()
+                    var link = $(this)
+                    var httpMethod = link.data('method').toUpperCase()
+                    var form
+
+                    if ($.inArray(httpMethod, ['PUT', 'DELETE']) === -1) {
+                        return false
+                    }
+                    Laravel
+                        .verifyConfirm(link)
+                        .done(function () {
+                            form = Laravel.createForm(link)
+                            form.submit()
+                        })
+                },
+                verifyConfirm: function(link) {
+                    var confirm = new $.Deferred()
+                    var userResponse = window.confirm(link.data('confirm'))
+                    if (userResponse) {
+                        confirm.resolve(link)
+                    } else {
+                        confirm.reject(link);
+                    }
+                    return confirm.promise()
+                },
+                createForm: function(link) {
+                    var form =
+                        $('<form>', {
+                            'method': 'POST',
+                            'action': link.attr('href')
+                        });
+                    var token =
+                        $('<input>', {
+                            'type': 'hidden',
+                            'name': '_token',
+                            'value': link.data('token')
+                        });
+                    var hiddenInput =
+                        $('<input>', {
+                            'name': '_method',
+                            'type': 'hidden',
+                            'value': link.data('method')
+                        });
+                    return form.append(token, hiddenInput)
+                        .appendTo('body');
+                }
+            };
+            Laravel.initialize();
+        })(window, jQuery);
 
 
 @endsection

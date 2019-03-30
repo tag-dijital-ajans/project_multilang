@@ -28,7 +28,7 @@ Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
         //Setting
         Route::resource('setting','SettingController');
         //Page
-        Route::resource('mainpage','MainPageController');
+        Route::resource('mainpagesetting','MainPageController');
         Route::resource('page','PageController');
         Route::resource('service','ServiceController');
         Route::resource('project','ProjectController');

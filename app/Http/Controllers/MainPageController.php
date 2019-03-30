@@ -15,8 +15,8 @@ class MainPageController extends Controller
      */
     public function index()
     {
-        $mainpages = MainPage::all();
-        return view('admin.mainpage.index',compact('mainpages'));
+        $mainpagesetting = MainPage::find(1);
+        return view('admin.mainpage.mainpagesetting',compact('mainpagesetting'));
     }
 
     /**
@@ -26,8 +26,6 @@ class MainPageController extends Controller
      */
     public function create()
     {
-        $mainpage = MainPage::find(1);
-        return view('admin.mainpage.create',compact('mainpage'));
     }
 
     /**
@@ -38,21 +36,6 @@ class MainPageController extends Controller
      */
     public function store(Request $request)
     {
-        $mainpage  = new MainPage();
-
-
-        foreach(config('translatable.locales') as $langs)
-
-        {
-            $mainpage->{'textheader:'.$langs } = $request->get('textheader')[$langs];
-            $mainpage->{'text:'.$langs} = $request->get('text')[$langs];
-
-        }
-
-        $mainpage->save();
-        return back()->with('success','Sayfa Eklendi');
-
-
     }
 
     /**
@@ -63,7 +46,7 @@ class MainPageController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -74,8 +57,6 @@ class MainPageController extends Controller
      */
     public function edit($id)
     {
-        $mainpage = MainPage::find($id);
-        return view('admin.mainpage.edit',compact('mainpage'));
     }
 
     /**
@@ -87,22 +68,34 @@ class MainPageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mainpage  = MainPage::find($id);
-
-
+        $mainpagesetting = MainPage::find(1);
 
         foreach(config('translatable.locales') as $langs)
 
         {
-            $mainpage->{'textheader:'.$langs } = $request->get('textheader')[$langs];
-            $mainpage->{'text:'.$langs} = $request->get('text')[$langs];
+            $mainpagesetting->{'textheader:'.$langs } = $request->get('textheader')[$langs];
+            $mainpagesetting->{'text:'.$langs} = $request->get('text')[$langs];
 
 
         }
 
-        $mainpage->save();
-        return back()->with('success','Sayfa Güncellendi');
 
+
+
+        $mainpagesetting->blog = request('metin');
+        $mainpagesetting->project = request('yorumlar');
+        $mainpagesetting->service = request('galeri');
+
+        $mainpagesetting->save();
+        if ($mainpagesetting) {
+
+            return back()->with('success', 'Anasayfa  Güncellendi');
+
+        } else {
+            return back()->with('error', 'Anasayfa Güncellenemedi');
+
+
+        }
     }
 
     /**
@@ -113,7 +106,5 @@ class MainPageController extends Controller
      */
     public function destroy($id)
     {
-        MainPage::destroy($id);
-        return back()->with('success','Sayfa Silinidi');
     }
 }

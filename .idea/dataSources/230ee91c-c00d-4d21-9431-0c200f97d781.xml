@@ -1149,7 +1149,7 @@ locale</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="245" name="blogcategory_id">
+    <column id="290" parent="245" name="blog_category_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
@@ -1172,7 +1172,7 @@ locale</ColNames>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="294" parent="245" name="blogcategory_translation_blogcategory_id_locale_unique">
-      <ColNames>blogcategory_id
+      <ColNames>blog_category_id
 locale</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
@@ -1187,12 +1187,12 @@ locale</ColNames>
       <Primary>1</Primary>
     </key>
     <key id="297" parent="245" name="blogcategory_translation_blogcategory_id_locale_unique">
-      <ColNames>blogcategory_id
+      <ColNames>blog_category_id
 locale</ColNames>
       <UnderlyingIndexName>blogcategory_translation_blogcategory_id_locale_unique</UnderlyingIndexName>
     </key>
     <foreign-key id="298" parent="245" name="blogcategory_translation_blogcategory_id_foreign">
-      <ColNames>blogcategory_id</ColNames>
+      <ColNames>blog_category_id</ColNames>
       <RefSchemaName>construction</RefSchemaName>
       <RefTableName>blogcategory</RefTableName>
       <RefColNames>id</RefColNames>
@@ -1328,7 +1328,7 @@ locale</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="249" name="mainpagesetting_id">
+    <column id="322" parent="249" name="main_page_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
@@ -1351,7 +1351,7 @@ locale</ColNames>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="326" parent="249" name="mainpagesetting_translation_mainpagesetting_id_locale_unique">
-      <ColNames>mainpagesetting_id
+      <ColNames>main_page_id
 locale</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
@@ -1366,12 +1366,12 @@ locale</ColNames>
       <Primary>1</Primary>
     </key>
     <key id="329" parent="249" name="mainpagesetting_translation_mainpagesetting_id_locale_unique">
-      <ColNames>mainpagesetting_id
+      <ColNames>main_page_id
 locale</ColNames>
       <UnderlyingIndexName>mainpagesetting_translation_mainpagesetting_id_locale_unique</UnderlyingIndexName>
     </key>
     <foreign-key id="330" parent="249" name="mainpagesetting_translation_mainpagesetting_id_foreign">
-      <ColNames>mainpagesetting_id</ColNames>
+      <ColNames>main_page_id</ColNames>
       <RefSchemaName>construction</RefSchemaName>
       <RefTableName>mainpagesetting</RefTableName>
       <RefColNames>id</RefColNames>
@@ -1452,7 +1452,7 @@ locale</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="252" name="navmenu_id">
+    <column id="344" parent="252" name="menu_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
@@ -1470,7 +1470,7 @@ locale</ColNames>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="347" parent="252" name="navmenu_translation_navmenu_id_locale_unique">
-      <ColNames>navmenu_id
+      <ColNames>menu_id
 locale</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
@@ -1485,12 +1485,12 @@ locale</ColNames>
       <Primary>1</Primary>
     </key>
     <key id="350" parent="252" name="navmenu_translation_navmenu_id_locale_unique">
-      <ColNames>navmenu_id
+      <ColNames>menu_id
 locale</ColNames>
       <UnderlyingIndexName>navmenu_translation_navmenu_id_locale_unique</UnderlyingIndexName>
     </key>
     <foreign-key id="351" parent="252" name="navmenu_translation_navmenu_id_foreign">
-      <ColNames>navmenu_id</ColNames>
+      <ColNames>menu_id</ColNames>
       <RefSchemaName>construction</RefSchemaName>
       <RefTableName>navmenu</RefTableName>
       <RefColNames>id</RefColNames>
@@ -1747,7 +1747,7 @@ locale</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="398" parent="259" name="projectcategory_id">
+    <column id="398" parent="259" name="project_category_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
@@ -1770,7 +1770,7 @@ locale</ColNames>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="402" parent="259" name="projectcategory_translation_projectcategory_id_locale_unique">
-      <ColNames>projectcategory_id
+      <ColNames>project_category_id
 locale</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
@@ -1785,12 +1785,12 @@ locale</ColNames>
       <Primary>1</Primary>
     </key>
     <key id="405" parent="259" name="projectcategory_translation_projectcategory_id_locale_unique">
-      <ColNames>projectcategory_id
+      <ColNames>project_category_id
 locale</ColNames>
       <UnderlyingIndexName>projectcategory_translation_projectcategory_id_locale_unique</UnderlyingIndexName>
     </key>
     <foreign-key id="406" parent="259" name="projectcategory_translation_projectcategory_id_foreign">
-      <ColNames>projectcategory_id</ColNames>
+      <ColNames>project_category_id</ColNames>
       <RefSchemaName>construction</RefSchemaName>
       <RefTableName>projectcategory</RefTableName>
       <RefColNames>id</RefColNames>
