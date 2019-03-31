@@ -25,7 +25,8 @@ Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
         //Setting
         Route::resource('setting','SettingController');
         //Page
-        Route::resource('mainpage','MainPageController');
+        Route::resource('mainpagesetting','MainPageController');
+
         Route::resource('page','PageController');
         Route::resource('service','ServiceController');
         Route::resource('project','ProjectController');
@@ -36,6 +37,8 @@ Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
         Route::resource('blogcategory','BlogCategoryController');
         Route::resource('menu','MenuController');
         Route::resource('gallery','GalleryController');
+        Route::post('gallery/store', 'GalleryController@store');
+        Route::delete('projectgallerydelete/{id}', 'ProjectController@gallerydestroy')->name('projectgallery.delete');
 
 
 

@@ -14,7 +14,6 @@
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
-                            <th> Görsel</th>
                             <th> Başlık</th>
                             <th> İçerik</th>
 
@@ -27,7 +26,6 @@
                         <tbody>
                         @foreach($blogs as $blog)
                             <tr>
-                                <td><img src="/{{$blog->image}}"> </td>
                                 <td>{{$blog->title}}</td>
                                 <td>{!! $blog->content !!}</td>
                                 <td><a href="{{route('blog.edit', $blog->id)}}" class="btn btn-success">Düzenle</a></td>

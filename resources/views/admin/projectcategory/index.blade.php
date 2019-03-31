@@ -15,9 +15,9 @@
                         <thead>
                         <tr>
                             <th> Başlık</th>
-
-                            <th>Düzenle</th>
-                            <th>Sil</th>
+                            <th> Seo</th>
+                            <th width="5">Düzenle</th>
+                            <th width="5">Sil</th>
                         </tr>
                         </thead>
 
@@ -25,16 +25,23 @@
                         <tbody>
                         @foreach($projectcategorys as $projectcategory)
                             <tr>
+
                                 <td>{{$projectcategory->title}}</td>
+                                <td>{{$projectcategory->slug}}</td>
+
+
                                 <td><a href="{{route('projectcategory.edit', $projectcategory->id)}}" class="btn btn-success">Düzenle</a></td>
+
+                                @if($projectcategory->id == '1')
+                                    <td>Silinemez</td>
+                                @else
                                 {!! Form::model($projectcategory,['route'=>['projectcategory.destroy',$projectcategory->id],'method'=>'DELETE']) !!}
                                 <td class="center">
                                     <button type="submit" onclick="return window.confirm('Silmek istediğinize eminmisiniz?');" class="btn btn-danger ">Sil</button>
                                 </td>
 
                                 {!! Form::close() !!}
-
-
+@endif
                             </tr>
                         @endforeach
 

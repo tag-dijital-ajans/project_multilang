@@ -43,7 +43,7 @@
         <div class="topbar-left">
             <div class="text-center">
                 <!--<a href="index.html" class="logo">Admiry</a>-->
-                <a href="{{route('admin.index')}}" class="logo"><img src="/admin/images/logo.png" height="33" alt="logo"></a>
+                <a href="{{route('admin.index')}}" class="logo"><img src="/admin/images/logopanel.png" height="33" alt="logo"></a>
             </div>
         </div>
 
@@ -69,14 +69,28 @@
                             <span> Anasayfa <span class="badge badge-primary pull-right"></span></span>
                         </a>
                     </li>
-                    <li >
+
+
+
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-settings"></i><span> Tüm Ayarlar </span> <span class="badge badge-danger pull-right">2</span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="{{route('mainpagesetting.index')}}"> Anasayfa Ayarları</a></li>
+                            <li><a href="{{route('setting.index')}}"> Site Ayarları</a></li>
+                        </ul>
+                    </li>
+
+
+
+
+                 {{--   <li >
                         <a href="{{route('mainpage.index')}}" class="waves-effect"><i class="ti-home"></i><i class="ti-settings"></i> <span> Anasayfa Ayarları </span> </a>
 
                     </li>
                     <li >
                         <a href="{{route('setting.index')}}" class="waves-effect"><i class="ti-settings"></i> <span> Site Ayarları </span> </a>
 
-                    </li>
+                    </li>--}}
 
                     <li >
                         <a href="{{route('page.index')}}" class="waves-effect"><i class="ti-files"></i></i> <span> Sayfa Yönetimi </span> </a>
@@ -120,25 +134,6 @@
                     </li>
 
 
-                    <li class="has_sub">
-                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-light-bulb"></i> <span> User Interface </span> <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="ui-buttons.html">Buttons</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-                    <li class="menu-title text-white">Diğer Ayarlar</li>
-
-                    <li class="has_sub">
-                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-map"></i><span> Maps </span> <span class="badge badge-danger pull-right">2</span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="maps-google.html"> Google Map</a></li>
-                            <li><a href="maps-vector.html"> Vector Map</a></li>
-                        </ul>
-                    </li>
 
 
 

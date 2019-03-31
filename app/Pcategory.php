@@ -4,19 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MainPage extends Model
+class Pcategory extends Model
 {
-    protected $table = 'mainpagesetting';
+    protected $table = 'pcategory';
     protected $guarded = [];
 
     use \Dimsav\Translatable\Translatable;
 
     public $translatedAttributes = [
-        'textheader','text'
+        'title','slug'
     ];
 
     protected $fillable = [
-        'blog','project','service'
-    ];
 
+    ];
 }

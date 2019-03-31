@@ -2,19 +2,20 @@
 
 @section('content')
 
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                    <h5>Anasayfa Ayarları</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    {!! Form::model($mainpagesetting,['route'=>['mainpagesetting.update',1],'method'=>'PUT','class'=>'form-horizontal']) !!}
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card m-b-30">
-                <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Sayfa Güncelle</h4>
-
-                    {!! Form::model($mainpage,['route'=>['mainpage.update',$mainpage->id],'method'=>'PUT','class'=>'form-horizontal','files'=>'true']) !!}
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#textheader{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
@@ -25,7 +26,7 @@
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <div class="tab-pane @if($count == 0) active @endif p-3" id="textheader{{$langs}}" role="tabpanel">
                                         <p class="font-14 mb-0">
-                                            <input class="form-control" type="text" value="{{$mainpage->translate($langs)->textheader}}"  name="textheader[{{$langs}}]" required>
+                                            <input class="form-control" type="text" value="{{$mainpagesetting->translate($langs)->textheader}}"  name="title[{{$langs}}]" >
                                         </p>
                                     </div>
                                 @endforeach
@@ -33,12 +34,11 @@
                         </div>
                     </div>
 
+
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">İçerik</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Anasayfa Metin</label>
                         <div class="col-sm-10">
-
-
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#text{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
@@ -49,9 +49,7 @@
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <div class="tab-pane @if($count == 0) active @endif p-3" id="text{{$langs}}" role="tabpanel">
                                         <p class="font-14 mb-0">
-                                            <textarea class="form-control" type="text"  name="text[{{$langs}}]" required>
-                                                {{$mainpage->translate($langs)->content}}
-                                            </textarea>
+                                            <textarea class="form-control" type="text" value="{{$mainpagesetting->translate($langs)->text}}"  name="text[{{$langs}}]" required></textarea>
                                         </p>
                                     </div>
                                 @endforeach
@@ -61,18 +59,19 @@
 
 
 
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Güncelle</button>
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Güncelle</button>
                     </div>
 
-
+                    {!! Form::close() !!}
                 </div>
             </div>
+
         </div>
+
     </div>
+
+
 
 @endsection
 

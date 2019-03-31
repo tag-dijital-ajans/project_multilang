@@ -9,6 +9,10 @@ class BlogCategory extends Model
     protected $table = 'blogcategory';
     protected $guarded = [];
 
+    public function posts() {
+
+        return $this->hasMany('App\Blog', 'category');
+    }
     use \Dimsav\Translatable\Translatable;
 
     public $translatedAttributes = [
@@ -18,4 +22,6 @@ class BlogCategory extends Model
     protected $fillable = [
 
     ];
+
+
 }

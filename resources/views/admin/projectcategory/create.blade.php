@@ -36,13 +36,11 @@
 
 
 
-
-
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
                             </div>
                         </div>
-                    {{--{!! Form::close() !!}--}}
+                    {!! Form::close() !!}
                         </div>
                     </div>
 

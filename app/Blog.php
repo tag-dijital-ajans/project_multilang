@@ -9,6 +9,10 @@ class Blog extends Model
     protected $table = 'blog';
     protected $guarded = [];
 
+    public function category(){
+        return $this->belongsTo('App\BlogCategory','category');
+    }
+
     use \Dimsav\Translatable\Translatable;
 
     public $translatedAttributes = [
@@ -18,4 +22,6 @@ class Blog extends Model
     protected $fillable = [
         'image'
         ];
+
+
 }

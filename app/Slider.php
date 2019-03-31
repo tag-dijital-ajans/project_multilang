@@ -9,8 +9,8 @@ class Slider extends Model
     protected $table = 'slider';
     protected $guarded = [];
 
-    use \Dimsav\Translatable\Translatable;
 
+    use \Dimsav\Translatable\Translatable;
     public $translatedAttributes = [
         'text1','buttontext'
     ];

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Str;
 
 class GalleryController extends Controller
 {
@@ -26,133 +28,69 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        $gallery = Gallery::find(1);
-        return view('admin.gallery.create',compact('gallery'));
+
+        return view('admin.gallery.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        $gallery  = new Gallery();
+        // getting all of the post data
+        $files = Input::file('images');
+        // Making counting of uploaded images
+        $file_count = count($files);
+        // start count how many uploaded
+        $uploadcount = 0;
 
-        if (request()->hasFile('image')) {
+        foreach ($files as $file) {
+            $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $validator = Validator::make(array('file'=> $file), $rules);
+            if($validator->passes()){
 
-            $validator = Validator::make($request->all(), [
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            ]);
-            if (!$validator->passes()) {
+                $galeri = new Gallery();
+                $dosya_adi = 'galeri' . '-' . microtime(true)  . '.' . $file->extension();
+                $hedef_klasor = 'uploads/gallery';
+                $dosya_yolu = $hedef_klasor . '/' . $dosya_adi;
+                $file->move($hedef_klasor, $dosya_adi);
+                $galeri->image = $dosya_yolu;
+                $galeri->order = '1';
 
-                return back()->with('error','Fotoğraf Yüklenmedi');
-            }
-
-            $image = request()->file('image');
-            $filename = 'image' . '-' . time() . '.' . $image->extension();
-
-            if ($image->isValid()) {
-
-                $target = 'uploads/page';
-                $filepath = $target . '/' . $filename;
-                $image->move($target, $filename);
-                $gallery->image = $filepath;
-
+                $galeri->save();
             }
         }
-        foreach(config('translatable.locales') as $langs)
-
-        {
-            $gallery->{'title:'.$langs } = $request->get('title')[$langs];
-
-
+        if($galeri){
+            return back()->with('success','Fotoğraflar Eklendi');
+        } else {
+            return back()->with('error','Fotoğraflar Eklenmedi');
         }
 
-        $gallery->save();
-        return back()->with('success','Sayfa Eklendi');
+
+
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        $gallery = Gallery::find($id);
-        return view('admin.gallery.edit',compact('gallery'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        $gallery  = Gallery::find($id);
 
-
-        if (request()->hasFile('image')) {
-
-            $validator = Validator::make($request->all(), [
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            ]);
-            if (!$validator->passes()) {
-
-                return back()->with('error','Fotoğraf Yüklenmedi Max 1024bayt olmalı');
-            }
-
-            $image = request()->file('image');
-            $filename = 'image' . '-' . time() . '.' . $image->extension();
-
-            if ($image->isValid()) {
-
-                $target = 'uploads/page';
-                $filepath = $target . '/' . $filename;
-                $image->move($target, $filename);
-                $gallery->image = $filepath;
-
-            }
-        }
-        foreach(config('translatable.locales') as $langs)
-
-        {
-            $gallery->{'title:'.$langs } = $request->get('title')[$langs];
-
-
-        }
-
-        $gallery->save();
-        return back()->with('success','Sayfa Güncellendi');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         Gallery::destroy($id);
-        return back()->with('success','Sayfa Silinidi');
+        return back()->with('success','Fotoğraf Silinidi');
     }
 }

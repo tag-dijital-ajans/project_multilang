@@ -17,9 +17,8 @@
                             <th> Görseli</th>
                             <th> Başlık</th>
                             <th> Açıklama</th>
-                            <th> Seo Açıklaması</th>
-                            <th width="%7"> Düzenle</th>
-                            <th width="%5"> Sil</th>
+                            <th width="7"> Düzenle</th>
+                            <th width="5"> Sil</th>
                         </tr>
                         </thead>
 
@@ -30,7 +29,7 @@
                                 <td><img src="/{{$page->photo}}" width="150px"> </td>
                                 <td>{{$page->title}}</td>
                                 <td>{!! $page->content!!}</td>
-                                <td>{{$page->slug}}</td>
+
                                 <td><a href="{{route('page.edit', $page->id)}}" class="btn btn-success">Düzenle</a></td>
                                 {!! Form::model($page,['route'=>['page.destroy',$page->id],'method'=>'DELETE']) !!}
                                 <td class="center">

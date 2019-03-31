@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,18 +26,15 @@ class MenuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
+        $pages = Page::all();
+        $menus = Menu::where('topnav','0')->get();
         $menu = Menu::find(1);
-        return view('admin.menu.create',compact('menu'));
+        return view('admin.menu.create',compact('menu','menus','pages'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+        public function store(Request $request)
     {
         $menu  = new Menu();
 
@@ -49,8 +47,13 @@ class MenuController extends Controller
 
         }
 
+
+        $menu->url = request('url');
+        $menu->topnav = request('topnav');
+        $menu->page = request('page');
+        $menu->order = request('order');
         $menu->save();
-        return back()->with('success','Sayfa Eklendi');
+        return back()->with('success','Menü Eklendi');
     }
 
     /**
@@ -74,7 +77,9 @@ class MenuController extends Controller
     {
 
         $menu = Menu::find($id);
-        return view('admin.menu.edit',compact('menu'));
+        $pages = Page::where('id','!=', $menu->title)->get();
+        $allmenu = Menu::all();
+        return view('admin.menu.edit',compact('menu','pages','allmenu'));
     }
 
     /**
@@ -87,9 +92,6 @@ class MenuController extends Controller
     public function update(Request $request, $id)
     {
         $menu  = Menu::find($id);
-
-
-
         foreach(config('translatable.locales') as $langs)
 
         {
@@ -98,6 +100,11 @@ class MenuController extends Controller
 
         }
 
+        $menu->navmenu_id = request('navmenu_id');
+        $menu->url = request('url');
+        $menu->topnav = request('topnav');
+        $menu->page = request('page');
+        $menu->order = request('order');
         $menu->save();
         return back()->with('success','Sayfa Güncellendi');
     }

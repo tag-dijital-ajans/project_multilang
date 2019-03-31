@@ -58,40 +58,32 @@
                       </div>
                     </div>
 
-
-                    <div class="control-group">
-                        <label class="control-label"> Buton Url</label>
-                        <div class="controls">
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Buton Url </label>
+                        <div class="col-sm-10">
                             <input type="text" class="span11" name="buttonurl"  />
                         </div>
                     </div>
 
-
-
-
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">Slider Görseli</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Slider Görseli </label>
                         <div class="col-sm-10">
-                    <div class="control-group">
-                        <label class="control-label"> Fotoğraf</label>
-                        <div class="controls">
                             <input type="file" name="image"  class="span11"  />
                         </div>
                     </div>
-                    <br/>
-                            <div class="form-actions">
+
+                    <div class="form-actions">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
                             </div>
-                        </div>
-                    {{--{!! Form::close() !!}--}}
-                        </div>
-                    </div>
+
+                    {!! Form::close() !!}
+
 
 
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
 
 @endsection
