@@ -16,9 +16,12 @@ class ContactForm extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $send;
+
+    public function __construct($sended)
     {
-        //
+        $this->send = $sended;
     }
 
     /**
@@ -28,6 +31,6 @@ class ContactForm extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.contactform');
+        return $this->markdown('emails.contactform')->subject('İletişim Formu');
     }
 }

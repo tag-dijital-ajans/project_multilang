@@ -4,7 +4,9 @@
     <section>
         <div class="block no-padding">
             <div class="main-map">
-                <div id="map" class="map"></div>
+                <div id="map" class="map">
+                    {!! $setting->googlemap !!}
+                </div>
             </div><!--main-map end-->
         </div>
     </section>
@@ -17,16 +19,16 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="contact-address">
-                                <h2><strong>Brooklyn, </strong>New York</h2>
-                                <p>269 King Str, 05th Floor, Utral Hosue Building, Melbourne, VIC 3000, Australia.</p>
-                                <span><b>Email:</b> infor@kons.com</span>
+                                <h2>{{__('contact.adress')}}</h2>
+                                <p>{{$setting->adress}}</p>
+                                <span><b>{{__('contact.email')}}</b>{{$setting->email}}</span>
                             </div><!--contact-address end-->
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-more-info">
-                                <h5>Call directly:</h5>
-                                <h2>(+035) 527-1710-70</h2>
-                                <div class="address">
+                                <h5>{{__('contact.callus')}}</h5>
+                                <h2>{{$setting->phone1}}</h2>
+                                {{--<div class="address">
                                     <h3>Brand Offices :</h3>
                                     <ul>
                                         <li><a href="#" title="">Allentown PA</a></li>
@@ -36,24 +38,26 @@
                                         <li><a href="#" title="">Edison, NJ</a></li>
                                         <li><a href="#" title="">Houston, TX</a></li>
                                     </ul>
-                                </div><!--address end-->
+                                </div>
                                 <div class="address">
                                     <h3>Work hours:</h3>
                                     <span>Mon - Sat: 8.00 - 17.00, Sunday closed</span>
-                                </div>
+                                </div>--}}
                             </div><!--contact-more-info end-->
                         </div>
                     </div>
                 </div><!--cntct-details end-->
                 <div class="contact-form-sec">
-                    <h3>Have A Question? Contact Us</h3>
+                    <h3>{{__('contact.textus')}}</h3>
                     <p class="success alert alert-success" id="success" style="display:none;"></p>
                     <p class="error alert alert-danger" id="error" style="display:none;"></p>
-                    <form name="contact_form_3" id="contact_form_3" method="post">
+                    <form action="{{route('contactform.send')}}" name="contact_form_3" id="contact_form_3" method="post">
+                        {{csrf_field()}}
                         <input type="hidden" name="axn" value="contact_3">
                         <div class="row">
+
                             <div class="col-lg-4">
-                                <input type="text" name="username" id="username" placeholder="Name*">
+                                <input type="text" name="name" id="name" placeholder="Name*">
                             </div>
                             <div class="col-lg-4">
                                 <input type="text" name="email" id="email" placeholder="Email*">
@@ -62,23 +66,26 @@
                                 <input type="text" name="subject" placeholder="Subject(Optional)">
                             </div>
                             <div class="col-lg-12">
-                                <textarea name="description" id="description" placeholder="Message"></textarea>
+                                <textarea name="message" id="message" placeholder="Mesaj"></textarea>
                             </div>
                             <div class="col-lg-12 text-center">
-                                <button type="button" id="submit_3">Send Message</button>
+                                <button type="submit" id="submit_3">Send Message</button>
                             </div>
+                            </form>
+
                         </div>
                     </form>
                 </div><!--contact-form-sec end-->
             </div>
         </div><!--contact-info-sec end-->
     </section>
+    @include('sweetalert::alert')
 @endsection
 
 @section('css')
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
 @endsection
 
 @section('js')
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 @endsection

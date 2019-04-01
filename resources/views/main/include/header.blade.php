@@ -14,7 +14,7 @@
                     <li><a href="#" title="">{{__('general.blogs')}}</a></li>
                     <li><a href="about.html" title="">{{__('general.about')}}</a></li>
                     <li><a href="about.html" title="">{{__('general.gallery')}}</a></li>
-                    <li><a href="contact.html" title="">{{__('general.contact')}}</a></li>
+                    <li><a href="{{route('contact.page')}}" title="">{{__('general.contact')}}</a></li>
                 </ul>
             </nav><!--nav end-->
             <div class="mobile-menu-btn">

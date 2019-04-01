@@ -25,12 +25,16 @@ class Menu extends Model
 
     public function topnavmenu() {
 
-        return $this->belongsTo('App\Menu','navmenu_id');
+        return $this->belongsTo('App\Menu','id');
     }
     public function bottommenu() {
 
         return $this->hasMany('App\Menu','topnav');
     }
+    public function page(){
+        return $this->belongsTo('App\Page','id');
+    }
+
 
 
 }

@@ -130,14 +130,14 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Tarihi</label>
                         <div class="col-sm-10">
-                            <input type="text" class="span11" value="{{$project->date}}" name="date"/>
+                            <input type="text" class="form-control" value="{{$project->date}}" name="date"/>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Ana Görsel</label>
                         <div class="col-sm-10">
-                                    <input type="file" name="image"  class="span11"  />
+                                    <input type="file" name="image"  class="form-control"  />
                             <br><img src="/{{$project->photo}}" value="{{$project->photo}}"width="200px">
                           </div>
 
@@ -146,7 +146,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Galeriye Ekle</label>
                         <div class="col-sm-10">
-                            {!! Form::file('images[]', array('multiple'=>true , 'required' =>'required')) !!}
+                            {!! Form::file('images[]', array('multiple'=>true ,'class'=>'form-control', 'required' =>'required')) !!}
                         </div>
                     </div>
 

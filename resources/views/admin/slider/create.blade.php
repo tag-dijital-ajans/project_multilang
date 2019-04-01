@@ -61,14 +61,15 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Buton Url </label>
                         <div class="col-sm-10">
-                            <input type="text" class="span11" name="buttonurl"  />
+                            <input type="text" class="form-control" name="buttonurl"  />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Slider Görseli </label>
                         <div class="col-sm-10">
-                            <input type="file" name="image"  class="span11"  />
+                            <input type="file" name="image"  class="form-control"  />
+                            <div><span>1920x1267px ve max 512mb</span></div>
                         </div>
                     </div>
 

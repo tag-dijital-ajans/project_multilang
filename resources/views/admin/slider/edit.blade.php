@@ -62,14 +62,14 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Buton Linki</label>
                         <div class="col-sm-10">
-                            <input type="text" value="{{$slider->buttonurl}}"  class="span11" name="buttonurl"  />
+                            <input type="text" value="{{$slider->buttonurl}}"  class="form-control" name="buttonurl"  />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Slider Görseli</label>
                         <div class="col-sm-10">
-                                    <input type="file" name="image"  class="span11"  />
+                                    <input type="file" name="image"  class="form-control"  />
                             <img src="/{{$slider->image}}" width="200px">
                                 </div>
 

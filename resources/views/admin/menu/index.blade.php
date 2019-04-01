@@ -26,10 +26,10 @@
                         <tbody>
                         @foreach($menus as $menu)
                             <tr>
-                                {{--<td>{{$menu->title}}</td>--}}
+                                <td>{{$menu->title}}</td>
                                 <td>
-                                    @if($menu->sayfasi)
-                                        <strong>Sayfa:</strong> {{$menu->sayfasi->title}}
+                                    @if($menu->page)
+                                        <strong>Sayfa:</strong> {{$menu->page->id}}
                                     @else
                                         <strong>Özel Url:</strong> {{$menu->url}}
 

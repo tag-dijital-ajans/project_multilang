@@ -19,6 +19,9 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('logout','AdminController@logout')->name('logout');
+
 Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
 
         Route::get('/index','AdminController@index')->name('admin.index');
@@ -71,3 +74,4 @@ Route::group(
         //lang/(dil)/routes.php içerisinde url dil yapısı için çeviriler
     });
 
+        Route::post('contactformsend','Main\MainpageController@contactform')->name('contactform.send');

@@ -14,9 +14,9 @@
 
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Proje Seçin</label>
-
-                            <select name="project_category_id" class="col-md-9 col-form-label">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Kategorisi</label>
+                        <div class="col-sm-10">
+                            <select name="project_category_id" class="form-control">
 
                                 @foreach($projectcategorys as $project)
 
@@ -26,6 +26,7 @@
                                 @endforeach
 
                             </select>
+                    </div>
                     </div>
 
                     <div class="form-group row">
@@ -155,7 +156,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Yılı</label>
                         <div class="col-sm-10">
-                            <input type="text" class="span11" name="date"/>
+                            <input type="text" class="form-control" name="date"/>
                         </div>
                     </div>
 
@@ -163,7 +164,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Ana Görsel</label>
                         <div class="col-sm-10">
-                            <input type="file" name="image"  class="span11"  />
+                            <input type="file" name="image"  class="form-control"  />
                         </div>
                     </div>
 
@@ -171,7 +172,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Galeri Ekle</label>
                         <div class="col-sm-10">
-                            {!! Form::file('images[]', array('multiple'=>true , 'required' =>'required')) !!}
+                            {!! Form::file('images[]', array('multiple'=>true ,'class'=>'form-control', 'required' =>'required')) !!}
                          </div>
                     </div>
 
