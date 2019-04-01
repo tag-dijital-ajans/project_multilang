@@ -11,6 +11,21 @@
 
                     {!! Form::open(['route'=>'blog.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
                     <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Kategory</label>
+                        <div class="col-sm-10">
+                            <select name="category" class="form-control">
+
+                                @foreach($categories as $category)
+
+                                    <option value="{{$category->id}}">{{$category->title}}</option>
+
+
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
                     <ul class="nav nav-tabs" role="tablist">

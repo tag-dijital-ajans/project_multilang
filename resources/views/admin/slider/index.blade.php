@@ -14,10 +14,16 @@
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
+<<<<<<< HEAD
                             <th>Görsel</th>
                             <th>Metin</th>
                             <th>Buton Metni</th>
                             <th>Buton Url</th>
+=======
+                            <th width="50%">Görsel</th>
+                            <th>Metin</th>
+
+>>>>>>> master
                             <th width="7">Düzenle</th>
                             <th width="5">Sil</th>
                         </tr>
@@ -27,10 +33,8 @@
                         <tbody>
                         @foreach($sliders as $slider)
                             <tr>
-                                <td><img src="/{{$slider->image}}" width="150px"> </td>
+                                <td><img src="/{{$slider->image}}" width="400px"> </td>
                                 <td>{{$slider->text1}}</td>
-                                <td>{!! $slider->buttontext !!}</td>
-                                <td>{!! $slider->buttonurl !!}</td>
 
                                 <td><a href="{{route('slider.edit', $slider->id)}}" class="btn btn-success">Düzenle</a></td>
                                 {!! Form::model($slider,['route'=>['slider.destroy',$slider->id],'method'=>'DELETE']) !!}

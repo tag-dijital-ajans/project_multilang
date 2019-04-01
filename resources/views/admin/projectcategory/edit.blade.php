@@ -14,7 +14,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#title{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>

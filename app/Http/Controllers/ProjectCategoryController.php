@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pcategory;
 use App\ProjectCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,7 @@ class ProjectCategoryController extends Controller
      */
     public function index()
     {
-        $projectcategorys = ProjectCategory::all();
+        $projectcategorys = Pcategory::all();
         return view ('admin.projectcategory.index',compact('projectcategorys'));
     }
 
@@ -39,7 +40,7 @@ class ProjectCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $projectcategory  = new ProjectCategory();
+        $projectcategory  = new Pcategory();
 
 
 
@@ -47,7 +48,12 @@ class ProjectCategoryController extends Controller
 
         {
             $projectcategory->{'title:'.$langs } = $request->get('title')[$langs];
+<<<<<<< HEAD
             $projectcategory->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);
+=======
+
+           $projectcategory->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);
+>>>>>>> master
 
         }
 
@@ -75,7 +81,7 @@ class ProjectCategoryController extends Controller
      */
     public function edit($id)
     {
-        $projectcategory = ProjectCategory::find($id);
+        $projectcategory = Pcategory::find($id);
         return view('admin.projectcategory.edit',compact('projectcategory'));
     }
 
@@ -83,12 +89,12 @@ class ProjectCategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+    project_translation    * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $projectcategory  = ProjectCategory::find($id);
+        $projectcategory  = Pcategory::find($id);
 
 
 
@@ -112,7 +118,7 @@ class ProjectCategoryController extends Controller
      */
     public function destroy($id)
     {
-        ProjectCategory::destroy($id);
+        Pcategory::destroy($id);
         return back()->with('success','Kategori Silinidi');
     }
 }

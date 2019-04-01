@@ -14,6 +14,7 @@
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
+<<<<<<< HEAD
                             <th> Başlık</th>
                             <th> Url Adresi</th>
                             <th> Üst Menü</th>
@@ -21,6 +22,13 @@
                             <th> Diğerleri</th>
                             <th width="5">Düzenle</th>
                             <th width="5">Sil</th>
+=======
+                            <th>Menü Başlık</th>
+                            <th> Menü Url veya Sayfasi </th>
+                            <th>Menü Sıra</th>
+                            <th width="5%">Düzenle</th>
+                            <th width="5%">Sil</th>
+>>>>>>> master
                         </tr>
                         </thead>
 
@@ -28,10 +36,17 @@
                         <tbody>
                         @foreach($menus as $menu)
                             <tr>
+<<<<<<< HEAD
                                 {{--<td>{{$menu->title}}</td>--}}
                                 <td>
                                     @if($menu->sayfasi)
                                         <strong>Sayfa:</strong> {{$menu->sayfasi->title}}
+=======
+                                <td>{{$menu->title}}</td>
+                                <td>
+                                    @if($menu->page)
+                                        <strong>Sayfa:</strong> {{$menu->page->id}}
+>>>>>>> master
                                     @else
                                         <strong>Özel Url:</strong> {{$menu->url}}
 

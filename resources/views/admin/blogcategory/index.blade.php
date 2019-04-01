@@ -25,17 +25,29 @@
 
 
                         <tbody>
+<<<<<<< HEAD
                         @foreach($blogcategorys as $blogcatgory)
+=======
+                       @foreach($blogcategorys as $blogcatgory)
+>>>>>>> master
                             <tr>
 
                                 <td>{{$blogcatgory->title}}</td>
 
                                 <td><a href="{{route('blogcategory.edit', $blogcatgory->id)}}" class="btn btn-success">Düzenle</a></td>
                                 {!! Form::model($blogcatgory,['route'=>['blogcategory.destroy',$blogcatgory->id],'method'=>'DELETE']) !!}
+<<<<<<< HEAD
+=======
+                                @if($blogcatgory->id == '2')
+                                    <td>Silinemez</td>
+                                @else
+>>>>>>> master
                                 <td class="center">
+
+
                                     <button type="submit" onclick="return window.confirm('Silmek istediğinize eminmisiniz?');" class="btn btn-danger ">Sil</button>
                                 </td>
-
+                                @endif
                                 {!! Form::close() !!}
 
 

@@ -4,16 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class ProjectCategory extends Model
+class MpageSetting extends Model
 {
-    protected $table = 'projectcategory';
+    protected $table = 'mpagesetting';
     protected $guarded = [];
 
-
     use \Dimsav\Translatable\Translatable;
+
     public $translatedAttributes = [
-        'title','slug'
+        'title','text'
     ];
 
     protected $fillable = [

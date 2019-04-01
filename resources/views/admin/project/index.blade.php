@@ -14,12 +14,18 @@
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
+<<<<<<< HEAD
                             <th  width="40px"> Görsel</th>
                             <th> Başlık</th>
                             <th> İçerik</th>
                             <th  width="40px"> Lokasyon</th>
                             <th> Türü</th>
                             <th  width="40px"> Müşteri</th>
+=======
+                            <th  width="40%"> Görsel</th>
+                            <th> Proje Adı</th>
+
+>>>>>>> master
                           {{--  <th> Tarih</th>--}}
                             <th width="5px">Düzenle</th>
                             <th width="5-">Sil</th>
@@ -30,12 +36,18 @@
                         <tbody>
                         @foreach($projects as $project)
                             <tr>
+<<<<<<< HEAD
                                 <td><img src="/{{$project->image}}" width="50" height="50"></td>
                                 <td>{{$project->title}}</td>
                                 <td>{!! $project->content !!}</td>
                                 <td>{!! $project->location !!}</td>
                                 <td>{{$project->type}}</td>
                                 <td>{{$project->client}}</td>
+=======
+                                <td><img src="/{{$project->image}}" ></td>
+                                <td>{{$project->title}}</td>
+
+>>>>>>> master
                              {{--   <td>{{$project->date}}</td>--}}
                                 <td><a href="{{route('project.edit', $project->id)}}" class="btn btn-success">Düzenle</a></td>
                                 {!! Form::model($project,['route'=>['project.destroy',$project->id],'method'=>'DELETE']) !!}

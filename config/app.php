@@ -164,6 +164,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
         /*
          * Package Service Providers...
          */

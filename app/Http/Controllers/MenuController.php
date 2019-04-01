@@ -29,18 +29,16 @@ class MenuController extends Controller
 
     {
         $pages = Page::all();
+<<<<<<< HEAD
         $menus = Menu::where('navmenu_id','0')->get();
+=======
+        $menus = Menu::where('topnav','0')->get();
+>>>>>>> master
         $menu = Menu::find(1);
         return view('admin.menu.create',compact('menu','menus','pages'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+        public function store(Request $request)
     {
         $menu  = new Menu();
 
@@ -53,13 +51,17 @@ class MenuController extends Controller
 
         }
 
+<<<<<<< HEAD
         $menu->navmenu_id = request('navmenu_id');
+=======
+
+>>>>>>> master
         $menu->url = request('url');
         $menu->topnav = request('topnav');
         $menu->page = request('page');
         $menu->order = request('order');
         $menu->save();
-        return back()->with('success','Sayfa Eklendi');
+        return back()->with('success','Menü Eklendi');
     }
 
     /**

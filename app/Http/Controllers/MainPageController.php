@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MainPage;
+use App\MpageSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,6 +16,7 @@ class MainPageController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $mainpagesetting = MainPage::find(1);
         return view('admin.mainpage.mainpagesetting',compact('mainpagesetting'));
     }
@@ -69,9 +71,33 @@ class MainPageController extends Controller
     public function update(Request $request, $id)
     {
         $mainpagesetting = MainPage::find(1);
+=======
+        $mainpagesetting = MpageSetting::find(1);
+        return view('admin.mainpagesetting.index',compact('mainpagesetting'));
+    }
+
+
+
+    public function update(Request $request)
+    {
+        $mainpagesetting = MpageSetting::find(1);
 
         foreach(config('translatable.locales') as $langs)
 
+        {
+            $mainpagesetting->{'title:'.$langs } = $request->get('title')[$langs];
+            $mainpagesetting->{'text:'.$langs} = $request->get('text')[$langs];
+
+
+        }
+
+        $mainpagesetting->save();
+        if ($mainpagesetting) {
+>>>>>>> master
+
+            return back()->with('success', 'Anasayfa  Ayarları Güncellendi');
+
+<<<<<<< HEAD
         {
             $mainpagesetting->{'textheader:'.$langs } = $request->get('textheader')[$langs];
             $mainpagesetting->{'text:'.$langs} = $request->get('text')[$langs];
@@ -107,4 +133,14 @@ class MainPageController extends Controller
     public function destroy($id)
     {
     }
+=======
+        } else {
+            return back()->with('error', 'Anasayfa Ayarları Güncellenemedi');
+
+
+        }
+    }
+
+
+>>>>>>> master
 }

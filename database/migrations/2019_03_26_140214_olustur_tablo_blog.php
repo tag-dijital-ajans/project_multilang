@@ -15,6 +15,7 @@ class OlusturTabloBlog extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->Increments('id');
+            $table->integer('category')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

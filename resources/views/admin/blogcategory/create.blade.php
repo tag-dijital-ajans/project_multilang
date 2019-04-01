@@ -8,8 +8,16 @@
                 <div class="card-body">
 
                     <h4 class="mt-0 header-title">Yeni Blog Kategori</h4>
+<<<<<<< HEAD
 
                     {!! Form::open(['route'=>'blogcategory.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
+=======
+
+                    {!! Form::open(['route'=>'blogcategory.store','method'=>'POST','class'=>'form-horizontal','files'=>'true']) !!}
+
+
+
+>>>>>>> master
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">

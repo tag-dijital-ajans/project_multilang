@@ -14,9 +14,15 @@
 
 
                     <div class="form-group row">
+<<<<<<< HEAD
                         <label class="col-sm-2 col-form-label">Proje Seçin</label>
 
                             <select name="project_category_id" class="col-md-9 col-form-label">
+=======
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Kategorisi</label>
+                        <div class="col-sm-10">
+                            <select name="project_category_id" class="form-control">
+>>>>>>> master
 
                                 @foreach($projectcategorys as $project)
 
@@ -27,9 +33,13 @@
 
                             </select>
                     </div>
+<<<<<<< HEAD
                     <br/><br/><br/>
 
 
+=======
+                    </div>
+>>>>>>> master
 
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Adı</label>
@@ -155,29 +165,41 @@
                     </div>
 
 
-                    <div class="control-group">
-                        <label class="control-label">Proje Tarihi</label>
-                        <div class="controls">
-                            <input type="text" class="span11" name="date"/>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Yılı</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="date"/>
                         </div>
                     </div>
 
 
                     <div class="form-group row">
+<<<<<<< HEAD
                         <label for="example-text-input" class="col-sm-2 col-form-label">Proje Ana Görseli</label>
+=======
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Ana Görsel</label>
+>>>>>>> master
                         <div class="col-sm-10">
-                    <div class="control-group">
-                        <label class="control-label"> </label>
-                        <div class="controls">
-                            <input type="file" name="image"  class="span11"  />
+                            <input type="file" name="image"  class="form-control"  />
                         </div>
                     </div>
+<<<<<<< HEAD
                             <div class="control-group">
                                 <label class="control-label">Proje Galerisi</label>
                                 <div class="controls">
                                     {!! Form::file('images[]', array('multiple'=>true , 'required' =>'required')) !!}
                                 </div>
                             </div>
+=======
+
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Proje Galeri Ekle</label>
+                        <div class="col-sm-10">
+                            {!! Form::file('images[]', array('multiple'=>true ,'class'=>'form-control', 'required' =>'required')) !!}
+                         </div>
+                    </div>
+>>>>>>> master
 
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
@@ -185,13 +207,13 @@
                         </div>
                     {{--{!! Form::close() !!}--}}
                         </div>
-                    </div>
+
 
 
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
 
 @endsection

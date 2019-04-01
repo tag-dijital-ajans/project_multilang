@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\BlogCategory;
+use App\Pcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -16,6 +18,7 @@ class BlogController extends Controller
      */
     public function index()
     {
+
         $blogs = Blog::all();
         return view('admin.blog.index',compact('blogs'));
     }
@@ -27,8 +30,9 @@ class BlogController extends Controller
      */
     public function create()
     {
+        $categories = BlogCategory::all();
         $blog = Blog::find(1);
-        return view('admin.blog.create',compact('blog'));
+        return view('admin.blog.create',compact('blog','categories'));
     }
 
     /**
@@ -71,7 +75,7 @@ class BlogController extends Controller
             $blog->{'slug:'.$langs} = Str::slug($request->get('title')[$langs]);
 
         }
-
+        $blog->category = $request->get('category');
         $blog->save();
         return back()->with('success','Blog Eklendi');
     }
@@ -96,7 +100,10 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
-        return view('admin.blog.edit',compact('blog'));
+        $categories = Pcategory::where('id', '!=', $blog->category)->get();
+        $owncategory = Pcategory::where('id',$blog->category)->first();
+
+        return view('admin.blog.edit',compact('blog','categories','owncategory'));
     }
 
     /**

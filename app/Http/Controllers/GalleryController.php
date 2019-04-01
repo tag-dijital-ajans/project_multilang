@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Input;
+>>>>>>> master
 use Illuminate\Support\Str;
 
 class GalleryController extends Controller
@@ -31,14 +35,10 @@ class GalleryController extends Controller
         return view('admin.gallery.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $galleries = $request->file([]);
 
         foreach ($galleries as $gallery) {
@@ -62,11 +62,35 @@ class GalleryController extends Controller
                 $gallery->{'title:'.$langs } = 'Galeri' ;
 
 
+=======
+        // getting all of the post data
+        $files = Input::file('images');
+        // Making counting of uploaded images
+        $file_count = count($files);
+        // start count how many uploaded
+        $uploadcount = 0;
+
+        foreach ($files as $file) {
+            $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $validator = Validator::make(array('file'=> $file), $rules);
+            if($validator->passes()){
+
+                $galeri = new Gallery();
+                $dosya_adi = 'galeri' . '-' . microtime(true)  . '.' . $file->extension();
+                $hedef_klasor = 'uploads/gallery';
+                $dosya_yolu = $hedef_klasor . '/' . $dosya_adi;
+                $file->move($hedef_klasor, $dosya_adi);
+                $galeri->image = $dosya_yolu;
+                $galeri->order = '1';
+
+                $galeri->save();
+>>>>>>> master
             }
 
             $gallery->save();
 
         }
+<<<<<<< HEAD
 
 
 
@@ -75,40 +99,35 @@ class GalleryController extends Controller
 
 
 
+=======
+        if($galeri){
+            return back()->with('success','Fotoğraflar Eklendi');
+        } else {
+            return back()->with('error','Fotoğraflar Eklenmedi');
+        }
+
+
+
+>>>>>>> master
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
        /* $gallery  = Gallery::find($id);
 
 
@@ -144,17 +163,15 @@ class GalleryController extends Controller
 
         $gallery->save();
         return back()->with('success','Sayfa Güncellendi');*/
+=======
+
+>>>>>>> master
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         Gallery::destroy($id);
-        return back()->with('success','Sayfa Silinidi');
+        return back()->with('success','Fotoğraf Silinidi');
     }
 }

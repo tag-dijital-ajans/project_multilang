@@ -15,14 +15,14 @@ class OlusturTabloBlogcategoryTranslation extends Migration
     {
         Schema::create('blogcategory_translation', function (Blueprint $table) {
             $table->Increments('id');
-            $table->unsignedInteger('blogcategory_id');
+            $table->unsignedInteger('blog_category_id');
             $table->string('locale')->index();
             $table->string('title')->nullable();
 
             $table->string('slug')->nullable();
 
-            $table->unique(['blogcategory_id','locale']);
-            $table->foreign('blogcategory_id')->references('id')->on('blogcategory')->onDelete('cascade');
+            $table->unique(['blog_category_id','locale']);
+            $table->foreign('blog_category_id')->references('id')->on('blogcategory')->onDelete('cascade');
         });
     }
 

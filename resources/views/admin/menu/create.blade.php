@@ -34,10 +34,17 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <div class="control-group">
                         <label class="control-label">Menü Sayfası Seçin</label>
                         <div class="controls">
                             <select name="page" class="span11">
+=======
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Sayfa</label>
+                        <div class="col-sm-10">
+                            <select name="page" class="form-control">
+>>>>>>> master
                                 <option value="0" selected>Özel Url</option>
 
                                 @foreach($pages as $page)
@@ -55,10 +62,17 @@
                     </div>
 
 
+<<<<<<< HEAD
                     <div class="control-group">
                         <label class="control-label">Üst Menü</label>
                         <div class="controls">
                             <select id="navmenu_id" name="navmenu_id" class="span11">
+=======
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Üst Menü</label>
+                        <div class="col-sm-10">
+                            <select id="topnav" name="topnav" class="form-control">
+>>>>>>> master
 
                                 <option value="0">Yok</option>
                                 @foreach($menus as $menu)
@@ -75,19 +89,31 @@
                         <label for="example-text-input" class="col-sm-2 col-form-label">Url Adresi</label>
                         <div class="col-sm-10">
 
+<<<<<<< HEAD
                             <input class="form-control" type="text" value="{{$menu->url}}" name="url">
+=======
+                            <input class="form-control" type="text"  name="url">
+>>>>>>> master
                         </div>
                     </div>
 
                     <div class="form-group row">
+<<<<<<< HEAD
                         <label for="example-text-input" class="col-sm-2 col-form-label">Diğerleri</label>
                         <div class="col-sm-10">
 
                             <input class="form-control" type="text" value="{{$menu->order}}" name="order">
+=======
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Sıra</label>
+                        <div class="col-sm-10">
+
+                            <input class="form-control" type="text" type="number" value="0"  name="order">
+>>>>>>> master
                         </div>
                     </div>
 
 
+<<<<<<< HEAD
 
 
 
@@ -97,13 +123,14 @@
 
 
 >
+=======
+>>>>>>> master
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
                             </div>
                         </div>
                     {{--{!! Form::close() !!}--}}
-                        </div>
-                    </div>
+
 
 
                 </div>

@@ -16,9 +16,9 @@
                         <label for="example-text-input" class="col-sm-2 col-form-label">Logo</label>
                         <div class="col-sm-10">
 
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
-                            <li class="nav-item waves-effect waves-light">
+                            <li class="nav-item ">
                                 <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#sitetitle{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
                             </li>
                             @endforeach
@@ -85,7 +85,7 @@
                         <label for="example-text-input" class="col-sm-2 col-form-label">Adres</label>
                         <div class="col-sm-10">
 
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#adress{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
@@ -158,7 +158,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Footer Yazısı</label>
                         <div class="col-sm-10">
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#footer{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>

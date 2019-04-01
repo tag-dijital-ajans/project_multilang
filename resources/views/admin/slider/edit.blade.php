@@ -14,7 +14,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Metin</label>
                         <div class="col-sm-10">
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#text1{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
@@ -37,8 +37,7 @@
                         <label for="example-text-input" class="col-sm-2 col-form-label">Buton Metni</label>
                         <div class="col-sm-10">
 
-
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#buttontext{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
@@ -60,30 +59,27 @@
                     </div>
 
 
-                    <div class="control-group">
-                        <label class="control-label"> Buton Url</label>
-                        <div class="controls">
-                            <input type="text" value="{{$slider->buttonurl}}"  class="span11" name="buttonurl"  />
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Buton Linki</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="{{$slider->buttonurl}}"  class="form-control" name="buttonurl"  />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Slider Görseli</label>
                         <div class="col-sm-10">
-                            <div class="control-group">
-                                <label class="control-label"> Fotoğraf</label>
-                                <div class="controls">
-                                    <input type="file" name="image"  class="span11"  />
+                                    <input type="file" name="image"  class="form-control"  />
+                            <img src="/{{$slider->image}}" width="200px">
                                 </div>
-                                <img src="/{{$slider->image}}" width="200px">
+
                             </div>
-                            <br/>
+
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Güncelle</button>
                             </div>
                             {!! Form::close() !!}
-                        </div>
-                    </div>
+
 
 
                 </div>

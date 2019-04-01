@@ -15,14 +15,14 @@ class OlusturTabloNavmenuTranslation extends Migration
     {
         Schema::create('navmenu_translation', function (Blueprint $table) {
             $table->Increments('id');
-            $table->unsignedInteger('navmenu_id');
+            $table->unsignedInteger('menu_id');
             $table->string('locale')->index();
 
             $table->string('title')->nullable();
 
 
-            $table->unique(['navmenu_id','locale']);
-            $table->foreign('navmenu_id')->references('id')->on('navmenu')->onDelete('cascade');
+            $table->unique(['menu_id','locale']);
+            $table->foreign('menu_id')->references('id')->on('navmenu')->onDelete('cascade');
         });
     }
 

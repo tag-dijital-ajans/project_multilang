@@ -11,16 +11,16 @@
 |
 */
 
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout','AdminController@logout')->name('logout');
 
 Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
 
@@ -28,7 +28,7 @@ Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
         //Setting
         Route::resource('setting','SettingController');
         //Page
-        Route::resource('mainpagesetting','MainPageController');
+        Route::resource('mainpage','MainPageController');
         Route::resource('page','PageController');
         Route::resource('service','ServiceController');
         Route::resource('project','ProjectController');
@@ -39,8 +39,38 @@ Route::group(['prefix'=>'admin','middleware' =>'admin'],function (){
         Route::resource('blogcategory','BlogCategoryController');
         Route::resource('menu','MenuController');
         Route::resource('gallery','GalleryController');
+        Route::post('gallery/store', 'GalleryController@store');
+        Route::delete('projectgallerydelete/{id}', 'ProjectController@gallerydestroy')->name('projectgallery.delete');
 
 
 
     });
 
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ],
+    function()
+    {
+
+
+        Route::get('/home', 'HomeController@index')->name('home'); //Laravel Mainpage
+        Route::get('/','Main\MainpageController@index')->name('home.page'); //Mainpage
+        Route::get(LaravelLocalization::transRoute('routes.projects').'/', 'Main\MainpageController@projects')->name('projects.page'); //Projects Page
+        Route::get(LaravelLocalization::transRoute('routes.project').'/', 'Main\MainpageController@project')->name('project.page'); //Projects Page
+        Route::get(LaravelLocalization::transRoute('routes.page').'/', 'Main\MainpageController@page')->name('page.single'); //Single Page
+        Route::get(LaravelLocalization::transRoute('routes.contact').'/', 'Main\MainpageController@contact')->name('contact.page'); //Contact Page
+        Route::get(LaravelLocalization::transRoute('routes.blog').'/', 'Main\MainpageController@blog')->name('blog.page'); //Blog Page
+        Route::get(LaravelLocalization::transRoute('routes.post').'/', 'Main\MainpageController@post')->name('blog.post'); //Post Page
+        Route::get(LaravelLocalization::transRoute('routes.gallery').'/', 'Main\MainpageController@gallery')->name('gallery.page'); //GalleryPage
+
+
+
+
+        /*Route::get(LaravelLocalization::transRoute('routes.yeni').'/', 'YeniController@index')->name('yeni');*/
+        //lang/(dil)/routes.php içerisinde url dil yapısı için çeviriler
+    });
+
+        Route::post('contactformsend','Main\MainpageController@contactform')->name('contactform.send');

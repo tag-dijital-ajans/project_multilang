@@ -11,10 +11,30 @@
                     <h4 class="mt-0 header-title">Sayfa Güncelle</h4>
 
                     {!! Form::model($blog,['route'=>['blog.update',$blog->id],'method'=>'PUT','class'=>'form-horizontal','files'=>'true']) !!}
+                  {{--  <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Sayfa Görseli</label>
+                        <div class="col-sm-10">
+                            <select name="category" class="form-control">
+                                <option value="{{$owncategory->id}}" selected>{{$owncategory->translate($langs)->title}}</option>
+                                @foreach($categories as $category)
+
+                                    <option value="{{$category->id}}">{{$category->translate($langs)->title}}</option>
+
+
+                                @endforeach
+
+                            </select>
+
+                        </div>
+
+                    </div>--}}
+
+
+
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#title{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>
@@ -38,7 +58,7 @@
                         <div class="col-sm-10">
 
 
-                            <ul class="nav nav-pills nav-justified" role="tablist">
+                            <ul class="nav nav-tabs" role="tablist">
                                 @foreach(config('translatable.locales') as $count => $langs )
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link @if($count == 0) active @endif" data-toggle="tab" href="#content{{$langs}}" aria-controls="{{$langs}}" role="tab">{{ $langs }}</a>

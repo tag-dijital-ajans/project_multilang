@@ -43,21 +43,12 @@
         <div class="topbar-left">
             <div class="text-center">
                 <!--<a href="index.html" class="logo">Admiry</a>-->
-                <a href="{{route('admin.index')}}" class="logo"><img src="/admin/images/logo.png" height="33" alt="logo"></a>
+                <a href="{{route('admin.index')}}" class="logo"><img src="/admin/images/logopanel.png" height="33" alt="logo"></a>
             </div>
         </div>
 
         <div class="sidebar-inner slimscrollleft">
 
-            {{--<div class="user-details">
-                <div class="text-center">
-                    <img src="/admin/images/users/avatar-6.jpg" alt="" class="rounded-circle">
-                </div>
-                <div class="user-info">
-                    <h4 class="font-16 text-white">Elena Retson</h4>
-                    <span class="text-white"><i class="fa fa-dot-circle-o text-success"></i> Online</span>
-                </div>
-            </div>--}}
 
             <div id="sidebar-menu">
                 <ul>
@@ -69,28 +60,13 @@
                             <span> Anasayfa <span class="badge badge-primary pull-right"></span></span>
                         </a>
                     </li>
-
-
-
-                    <li class="has_sub">
-                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-settings"></i><span> Tüm Ayarlar </span> <span class="badge badge-danger pull-right">2</span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="{{route('mainpagesetting.index')}}"> Anasayfa Ayarları</a></li>
-                            <li><a href="{{route('setting.index')}}"> Site Ayarları</a></li>
-                        </ul>
-                    </li>
-
-
-
-
-                 {{--   <li >
+                    <li >
                         <a href="{{route('mainpage.index')}}" class="waves-effect"><i class="ti-home"></i><i class="ti-settings"></i> <span> Anasayfa Ayarları </span> </a>
 
-                    </li>
-                    <li >
-                        <a href="{{route('setting.index')}}" class="waves-effect"><i class="ti-settings"></i> <span> Site Ayarları </span> </a>
 
-                    </li>--}}
+                    </li>
+
+
 
                     <li >
                         <a href="{{route('page.index')}}" class="waves-effect"><i class="ti-files"></i></i> <span> Sayfa Yönetimi </span> </a>
@@ -134,25 +110,6 @@
                     </li>
 
 
-                    <li class="has_sub">
-                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-light-bulb"></i> <span> User Interface </span> <span class="pull-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="ui-buttons.html">Buttons</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-                    <li class="menu-title text-white">Diğer Ayarlar</li>
-
-                    <li class="has_sub">
-                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-map"></i><span> Maps </span> <span class="badge badge-danger pull-right">2</span></a>
-                        <ul class="list-unstyled">
-                            <li><a href="maps-google.html"> Google Map</a></li>
-                            <li><a href="maps-vector.html"> Vector Map</a></li>
-                        </ul>
-                    </li>
 
 
 
@@ -176,89 +133,18 @@
                 <nav class="navbar-custom">
 
                     <ul class="list-inline float-right mb-0">
-                        <li class="list-inline-item dropdown notification-list">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="mdi mdi-email-outline noti-icon"></i>
-                                <span class="badge badge-danger noti-icon-badge">5</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5><span class="badge badge-danger float-right">745</span>Messages</h5>
-                                </div>
 
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon"><img src="/admin/images/users/user-5.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>
-                                    <p class="notify-details"><b>Charles M. Jones</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
-                                </a>
 
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon"><img src="/admin/images/users/avatar-3.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>
-                                    <p class="notify-details"><b>Thomas J. Mimms</b><small class="text-muted">You have 87 unread messages</small></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon"><img src="/admin/images/users/avatar-4.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>
-                                    <p class="notify-details"><b>Luis M. Konrad</b><small class="text-muted">It is a long established fact that a reader will</small></p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    View All
-                                </a>
-
-                            </div>
-                        </li>
-
-                        <li class="list-inline-item dropdown notification-list">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="mdi mdi-bell-outline noti-icon"></i>
-                                <span class="badge badge-success noti-icon-badge">3</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5><span class="badge badge-danger float-right">87</span>Notification</h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
-                                    <p class="notify-details"><b>Your order is placed</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-success"><i class="mdi mdi-message"></i></div>
-                                    <p class="notify-details"><b>New Message received</b><small class="text-muted">You have 87 unread messages</small></p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-warning"><i class="mdi mdi-martini"></i></div>
-                                    <p class="notify-details"><b>Your item is shipped</b><small class="text-muted">It is a long established fact that a reader will</small></p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    View All
-                                </a>
-
-                            </div>
-                        </li>
 
                         <li class="list-inline-item dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="/admin/images/users/user-5.jpg" alt="user" class="rounded-circle">
+                                <img src="/admin/images/users/user.png" alt="user" class="rounded-circle">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
-                                <a class="dropdown-item" href="#"><span class="badge badge-success pull-right">5</span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profil</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings m-r-5 text-muted"></i> Ayarlar</a>
+                                <a class="dropdown-item" href="{{route('home.page')}}" target="_blank"><i class="mdi mdi-settings m-r-5 text-muted"></i>Web Sitesi</a>
+                                <a class="dropdown-item" href="{{route('logout')}}"><i class="mdi mdi-logout m-r-5 text-muted"></i> Çıkış Yap</a>
                             </div>
                         </li>
 
